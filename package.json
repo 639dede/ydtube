@@ -1,0 +1,16 @@
+{
+	"name": "ydtube",
+	"version": "1.0.0",
+	"description": "The best way to wath videos",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/639dede/gocoin.git"
+	},
+	"author": "639dede",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/639dede/gocoin/issues"
+	},
+	"homepage": "https://github.com/639dede/gocoin#readme"
+}
