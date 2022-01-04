@@ -7,10 +7,22 @@
 		"type": "git",
 		"url": "git+https://github.com/639dede/gocoin.git"
 	},
+	"scripts": {
+		"dev": "nodemon --exec babel-node src/server.js"
+	},
 	"author": "639dede",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/639dede/gocoin/issues"
 	},
-	"homepage": "https://github.com/639dede/gocoin#readme"
+	"homepage": "https://github.com/639dede/gocoin#readme",
+	"dependencies": {
+		"express": "^4.17.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.7",
+		"@babel/node": "^7.16.7",
+		"@babel/preset-env": "^7.16.7",
+		"nodemon": "^2.0.15"
+	}
 }
