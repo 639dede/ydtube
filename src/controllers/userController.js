@@ -104,7 +104,6 @@ export const finishGithubLogin = async (req, res) => {
 				},
 			})
 		).json();
-		console.log(userData);
 		const emailData = await (
 			await fetch(`${apiUrl}/user/emails`, {
 				headers: {
@@ -153,7 +152,6 @@ export const postEdit = async (req, res) => {
 	if (sessionUsername !== username) {
 		serachParam.push({ username });
 	}
-	console.log(serachParam);
 	if (serachParam.length > 0) {
 		const foundUser = await User.findOne({ $or: serachParam });
 		if (foundUser && foundUser._id.toString() !== _id) {
@@ -180,6 +178,38 @@ export const postEdit = async (req, res) => {
 export const logout = (req, res) => {
 	req.session.destroy();
 	return res.redirect("/");
+};
+
+export const getChangePassword = (req, res) => {
+	if (req.session.user.socialOnly === true) {
+		res.redirect("/");
+	}
+	return res.render("users/change-password", { pageTitle: "Change Password" });
+};
+export const postChangePassword = async (req, res) => {
+	const {
+		session: {
+			user: { _id },
+		},
+		body: { oldPassword, newPassword, newPasswordConfirmation },
+	} = req;
+	const user = await User.findById(_id);
+	const ok = await bcrypt.compare(oldPassword, user.password);
+	if (!ok) {
+		return res.status(400).render("users/change-password", {
+			pageTitle: "Change Password",
+			errorMessage: "The current password is incorrect",
+		});
+	}
+	if (newPassword !== newPasswordConfirmation) {
+		return res.status(400).render("users/change-password", {
+			pageTitle: "Change Password",
+			errorMessage: "The new password does not match the confirmation",
+		});
+	}
+	user.password = newPassword;
+	await user.save();
+	return res.redirect("/users/logout");
 };
 
 export const see = (req, res) => res.send("See User");
