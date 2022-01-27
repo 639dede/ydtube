@@ -1,0 +1,8 @@
+extends ../base
+include ../mixins/video
+
+block content 
+    each v in user.videos    
+        +video(v)
+    else 
+        li Sorry noting found.
