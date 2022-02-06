@@ -22,21 +22,21 @@ block content
                     i.fas.fa-expand    
                     
         
-    //-   div
-            small Uploaded By                               
-                a(href=`/users/${video.owner._id}`)=video.owner.username
-            p=video.description
-            small=video.createdAt
-            br
-
-            
+    div
+        span Uploaded By                               
+            a(href=`/users/${video.owner._id}`)=video.owner.username
+        p=video.description
+        small=video.createdAt
         br
 
-        if (loggedInUser)
-            if (String(video.owner.id) === loggedInUser._id)
-                a(href=`${video.id}/edit`) Edit Video &rarr;
-                br
-                a(href=`${video.id}/delete`) Delete Video &rarr;
+        
+    br
+
+    if (loggedInUser)
+        if (String(video.owner.id) === loggedInUser._id)
+            a(href=`${video.id}/edit`) Edit Video &rarr;
+            br
+            a(href=`${video.id}/delete`) Delete Video &rarr;
 
 block scripts
     script(src="/static/js/videoPlayer.js") 
