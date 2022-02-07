@@ -15,7 +15,7 @@
 		"dev:server": "nodemon",
 		"dev:assets": "webpack --mode=development -w"
 	},
-	"author": "639dede",
+	"author": "639dededfdf",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/639dede/ydtube/issues"
