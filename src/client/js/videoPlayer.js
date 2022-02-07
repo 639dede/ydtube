@@ -11,6 +11,7 @@ const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
+const textarea = document.getElementById("textarea");
 
 let volumeValue = 0.5;
 let controlsTimeout = null;
@@ -114,7 +115,7 @@ const handleMouseLeave = () => {
 };
 
 const handleKey = (e) => {
-	if (e.key === " ") {
+	if (e.key === " " && e.target.id !== "textarea") {
 		if (video.paused) {
 			video.play();
 		} else {
@@ -122,7 +123,7 @@ const handleKey = (e) => {
 		}
 		playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 	}
-	if (e.key === "f") {
+	if (e.key === "f" && e.target.id !== "textarea") {
 		videoContainer.requestFullscreen();
 		fullScreenIcon.classList = "fas fa-compress";
 	}
