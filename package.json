@@ -5,18 +5,22 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/639dede/gocoin.git"
+		"url": "git+https://github.com/639dede/ydtube-reloaded.git"
 	},
 	"scripts": {
+		"start": "node build/init.js",
+		"build": "npm run build:server && npm run build:assets",
+		"build:server": "babel src -d build",
+		"build:assets": "webpack --mode=production",
 		"dev:server": "nodemon",
-		"dev:assets": "webpack"
+		"dev:assets": "webpack --mode=development -w"
 	},
 	"author": "639dede",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/639dede/gocoin/issues"
+		"url": "https://github.com/639dede/ydtube-reloaded/issues"
 	},
-	"homepage": "https://github.com/639dede/gocoin#readme",
+	"homepage": "https://github.com/639dede/ydtube-reloaded#readme",
 	"dependencies": {
 		"@ffmpeg/core": "^0.10.0",
 		"@ffmpeg/ffmpeg": "^0.10.1",
@@ -35,7 +39,8 @@
 		"regenerator-runtime": "^0.13.9"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.16.7",
+		"@babel/cli": "^7.17.0",
+		"@babel/core": "^7.17.0",
 		"@babel/node": "^7.16.7",
 		"@babel/preset-env": "^7.16.7",
 		"babel-loader": "^8.2.3",

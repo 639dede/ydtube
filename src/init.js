@@ -1,3 +1,5 @@
+import "regenerator-runtime";
+
 import "dotenv/config";
 
 import "./db";
