@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/639dede/ydtube-reloaded.git"
+		"url": "git+https://github.com/639dede/ydtube.git"
 	},
 	"scripts": {
 		"start": "node build/init.js",
@@ -18,9 +18,9 @@
 	"author": "639dede",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/639dede/ydtube-reloaded/issues"
+		"url": "https://github.com/639dede/ydtube/issues"
 	},
-	"homepage": "https://github.com/639dede/ydtube-reloaded#readme",
+	"homepage": "https://github.com/639dede/ydtube#readme",
 	"dependencies": {
 		"@ffmpeg/core": "^0.10.0",
 		"@ffmpeg/ffmpeg": "^0.10.1",
