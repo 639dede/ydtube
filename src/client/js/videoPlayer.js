@@ -59,7 +59,7 @@ const handleVolumeChange = (event) => {
 
 if (!isNaN(video.duration)) {
 	video.addEventListener("canplay", handleLoadedData);
-	handleLoadedData();
+	handleLoadedMetaData();
 }
 
 const formatTime = (seconds) => {
