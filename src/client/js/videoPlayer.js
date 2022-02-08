@@ -57,11 +57,6 @@ const handleVolumeChange = (event) => {
 	}
 };
 
-if (!isNaN(video.duration)) {
-	video.addEventListener("canplay", handleLoadedMetaData);
-	handleLoadedMetaData();
-}
-
 const formatTime = (seconds) => {
 	if (seconds >= 3600) {
 		return new Date(seconds * 1000).toISOString().substring(11, 19);
@@ -86,6 +81,11 @@ const handleTimelineChange = (event) => {
 	} = event;
 	video.currentTime = value;
 };
+
+if (!isNaN(video.duration)) {
+	video.addEventListener("canplay", handleLoadedMetaData);
+	handleLoadedMetaData();
+}
 
 const handleFullScreen = () => {
 	const fullScreen = document.fullscreenElement;
