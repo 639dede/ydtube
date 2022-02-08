@@ -26,6 +26,7 @@ const addComment = (text, id) => {
 	newComment.appendChild(span);
 	newComment.appendChild(button);
 	videoComments.prepend(newComment);
+
 	button.addEventListener("click", handleDelete);
 };
 
