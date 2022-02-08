@@ -5,6 +5,11 @@
 		border-radius: 17px;
 		width: 100%;
 		background-color: ivory;
+		img {
+			height: inherit;
+			width: inherit;
+			border-radius: 17px;
+		}
 	}
 	.video-mixin__data {
 		padding: 0px 20px;
