@@ -58,7 +58,7 @@ const handleVolumeChange = (event) => {
 };
 
 if (!isNaN(video.duration)) {
-	video.addEventListener("canplay", handleLoadedData);
+	video.addEventListener("canplay", handleLoadedMetaData);
 	handleLoadedMetaData();
 }
 
