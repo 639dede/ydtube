@@ -1,3 +1,10 @@
 0Y8sPebiV7mgNPxC
 
 mongodb+srv://639dede:0Y8sPebiV7mgNPxC@cluster0.reoba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+export const localsMiddleware = (req, res, next) => {
+	res.locals.loggedIn = Boolean(req.session.loggedIn);
+	res.locals.siteName = "YDtube";
+	res.locals.loggedInUser = req.session.user;
+	next();
+};
