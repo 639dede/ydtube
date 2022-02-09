@@ -24,9 +24,12 @@ block content
         
     div.video__data
         p.video__title=video.title
-        small.video__owner Uploaded By                               
+        br
+        small.video__owner Uploaded By                                                
             a(href=`/users/${video.owner._id}`)=video.owner.username
+        br
         p=video.description
+        br
         small=video.createdAt
         br
         if (loggedInUser)
