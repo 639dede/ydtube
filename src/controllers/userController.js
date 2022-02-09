@@ -147,6 +147,7 @@ export const postEdit = async (req, res) => {
 		body: { name, email, username, location },
 		file,
 	} = req;
+	const isHeroku = process.env.NODE_ENV === "production";
 	let serachParam = [];
 	if (sessionEmail !== email) {
 		serachParam.push({ email });
@@ -166,7 +167,11 @@ export const postEdit = async (req, res) => {
 	const updatedUser = await User.findByIdAndUpdate(
 		_id,
 		{
-			avatarUrl: file ? file.location : avatarUrl,
+			avatarUrl: file
+				? isHeroku
+					? file.location
+					: "/" + file.path
+				: avatarUrl,
 			name,
 			email,
 			username,
@@ -175,7 +180,7 @@ export const postEdit = async (req, res) => {
 		{ new: true }
 	);
 	req.session.user = updatedUser;
-	return res.redirect("/users/edit");
+	return res.redirect(`/users/${_id}`);
 };
 
 export const logout = (req, res) => {
